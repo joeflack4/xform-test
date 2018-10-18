@@ -41,7 +41,7 @@ open-docs:
 readme-to-docs:
 	cp README.md docs/source/content/docs.md
 test-files-to-static-doc-files:
-	cp test/files/XformTest/input/XformTest1.xlsx docs/source/_static/xlsx_example.xlsx
+	cp test/static/XformTest/input/XformTest1.xlsx docs/source/_static/xlsx_example.xlsx
 build-docs-no-open:
 	rm -rf docs/build/ && \
 	make readme-to-docs && \
