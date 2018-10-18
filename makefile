@@ -15,7 +15,7 @@ test-unit-tests:
 update-xml:
 	xls2xform ${SRC_XLSX} ${TEST_FILE}
 xform-test-only:
-	java -jar build/libs/opendatakit-javarosa-2.11.0.jar ${TEST_FILE}
+	java -jar build/libs/xform-test-0.1.0.jar ${TEST_FILE}
 xform-test:
 	make update-xml; \
 	make build; \

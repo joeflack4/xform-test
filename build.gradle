@@ -1,7 +1,6 @@
 plugins {
     id 'java'
     id 'checkstyle'
-    id 'jacoco'
 }
 
 repositories {
@@ -9,7 +8,9 @@ repositories {
 }
 
 sourceSets {
+    //noinspection GroovyAssignabilityCheck
     main {
+        //noinspection GroovyAssignabilityCheck
         java {
             srcDirs = ['src']
         }
@@ -17,26 +18,11 @@ sourceSets {
             srcDirs = ['res']
         }
     }
-    test {
-        java {
-            srcDirs = ['test']
-        }
-        resources {
-            srcDirs = ['resources']
-        }
-    }
 }
 
 compileJava {
     options.compilerArgs << "-Xlint:deprecation"
 }
-
-compileTestJava {
-    options.compilerArgs << "-Xlint:deprecation"
-}
-
-targetCompatibility = '1.8'
-sourceCompatibility = '1.8'
 
 configurations {
     // https://discuss.gradle.org/t/how-to-include-dependencies-in-jar/19571/5
@@ -46,23 +32,11 @@ configurations {
 
 dependencies {
     // Be sure to update dependencies in pom.xml to match
-    compile group: 'joda-time', name: 'joda-time', version: '2.9.9'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'org.opendatakit', name: 'opendatakit-javarosa', version: '2.11.2'
     extraLibs group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
-    extraLibs group: 'net.sf.kxml', name: 'kxml2', version: '2.3.0'
-    extraLibs group: 'joda-time', name: 'joda-time', version: '2.9.9'
-    extraLibs group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
-    compileOnly group: 'net.sf.kxml', name: 'kxml2', version: '2.3.0'
-    testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    testCompile group: 'net.sf.kxml', name: 'kxml2', version: '2.3.0'
+    extraLibs group: 'org.opendatakit', name: 'opendatakit-javarosa', version: '2.11.2'
     configurations.compile.extendsFrom(configurations.extraLibs)
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled true
-    }
 }
 
 // Required to use fileExtensions property in checkstyle file
@@ -70,29 +44,21 @@ checkstyle {
     toolVersion = '7.6.1' 
 }
 
-
-
 jar {
-    baseName = 'opendatakit-javarosa'
+    baseName = 'xform-test'
     // Be sure to update version in pom.xml to match
     // snapshot release = x.x.x-SNAPSHOT
     // production release = x.x.x
-    version = '2.11.0'
+    version = '0.1.0'
     archiveName = baseName + '-' + version + '.jar'
 
     manifest {
         attributes 'Manifest-Version': "$jar.version"
-        attributes 'Main-Class': "org.javarosa.xform_test.XFormTest"
+        attributes 'Main-Class': "org.pma2020.xform_test.XFormTest"
     }
     from {
         configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
     }
-}
-
-// Useful for testing
-task explodedJar(type: Copy) {
-    into "$buildDir/libs/$jar.baseName $jar.version"
-    with jar
 }
 
 // TODO: does not build UML diagrams

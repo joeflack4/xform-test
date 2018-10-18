@@ -1,33 +1,33 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.opendatakit</groupId>
-  <artifactId>opendatakit-javarosa</artifactId>
+  <groupId>org.pma2020.xform_test</groupId>
+  <artifactId>XFormTest</artifactId>
   <!-- Be sure to update version in build.gradle to match -->
   <!-- snapshot release = x.x.x-SNAPSHOT -->
   <!-- production release = x.x.x -->
-  <version>2.11.0</version>
+  <version>0.1.0</version>
   <packaging>jar</packaging>
-  <name>opendatakit-javarosa</name>
-  <description>A Java library for rendering forms that are compliant with ODK XForms spec</description>
-  <url>https://github.com/opendatakit/javarosa</url>
+  <name>XFormTest</name>
+  <description>A test suite for Xforms.</description>
+  <url>https://xform-test.pma2020.org</url>
   <licenses>
     <license>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <name>MIT</name>
+      <url>https://opensource.org/licenses/MIT</url>
     </license>
   </licenses>
   <developers>
     <developer>
-      <name>opendatakit</name>
-      <email>opendatakit.org@gmail.com</email>
-      <organization>Open Data Kit</organization>
-      <organizationUrl>https://opendatakit.org</organizationUrl>
+      <name>Joe Flack</name>
+      <email>joeflack4@gmail.com</email>
+      <organization>PMA2020</organization>
+      <organizationUrl>https://www.pma2020.org</organizationUrl>
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git://github.com/opendatakit/javarosa.git</connection>
-    <developerConnection>scm:git:ssh://github.com:opendatakit/javarosa.git</developerConnection>
-    <url>https://github.com/opendatakit/javarosa/tree/master</url>
+    <connection>scm:git:git://github.com/PMA-2020/xform-test.git</connection>
+    <developerConnection>scm:git:ssh://github.com:PMA-2020/xform-test.git</developerConnection>
+    <url>https://github.com/PMA-2020/xform-test/tree/master</url>
   </scm>
   <distributionManagement>
     <snapshotRepository>
@@ -45,34 +45,16 @@
   <dependencies>
     <!-- Be sure to update dependencies in build.gradle to match -->
     <dependency>
-      <groupId>net.sf.kxml</groupId>
-      <artifactId>kxml2</artifactId>
-      <version>2.3.0</version>
+      <groupId>org.opendatakit</groupId>
+      <artifactId>opendatakit-javarosa</artifactId>
+      <version>2.11.2</version>
       <scope>compile</scope>
-    </dependency>
-    <dependency>
-       <groupId>joda-time</groupId>
-       <artifactId>joda-time</artifactId>
-       <version>2.9.9</version>
-       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>1.7.25</version>
       <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>1.2.3</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
   <build>
