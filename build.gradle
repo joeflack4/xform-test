@@ -32,9 +32,9 @@ configurations {
 
 dependencies {
     // Be sure to update dependencies in pom.xml to match
-    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
     compile group: 'org.opendatakit', name: 'opendatakit-javarosa', version: '2.11.2'
-    extraLibs group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'org.slf4j', name: 'slf4j-nop', version: '1.7.21'
+    extraLibs group: 'org.slf4j', name: 'slf4j-nop', version: '1.7.21'
     extraLibs group: 'org.opendatakit', name: 'opendatakit-javarosa', version: '2.11.2'
     configurations.compile.extendsFrom(configurations.extraLibs)
 }

@@ -224,8 +224,7 @@ public class XFormTest {
     /** Sets up a mock client. Necessary to handle cases where an XForm contains things that are specific to a given
      * XForm handling client, e.g. ODK Collect. */
     private static void setUpMockClient() {
-        org.javarosa.core.services.PropertyManager
-            .setPropertyManager(new StubPropertyManager());
+        org.javarosa.core.services.PropertyManager.setPropertyManager(new StubPropertyManager());
     }
 
     /** Creates a new FormParseInit object, but silences all terminal output during the process.
