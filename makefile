@@ -1,6 +1,3 @@
-SRC_XLSX=test/static/XformTest/input/XFormTest1.xlsx
-TEST_FILE=test/static/XformTest/output/XFormTest1.xml
-
 .PHONY: typical-sphinx-setup open-docs readme-to-docs \
 build-docs-no-open build-docs docs-push-production docs-push-staging \
 docs-push create-docs docs-create docs-build docs test-unit-tests \
@@ -13,9 +10,10 @@ build jar xform-test xform-test-only test run test-only run-only
 test-unit-tests:
 	python3 test/test.py
 update-xml:
-	xls2xform ${SRC_XLSX} ${TEST_FILE}
+	xls2xform test/static/XformTest/input/XFormTest1.xlsx test/static/XformTest/output/XFormTest1.xml; \
+	xls2xform test/static/NA/input/NA.xlsx test/static/NA/output/NA.xml
 xform-test-only:
-	java -jar build/libs/xform-test-0.1.0.jar ${TEST_FILE}
+	java -jar build/libs/xform-test*.jar test/static/XformTest/output/XFormTest1.xml
 xform-test:
 	make update-xml; \
 	make build; \

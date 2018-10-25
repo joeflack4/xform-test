@@ -16,8 +16,8 @@
 
 package org.pma2020.xform_test;
 
-class XFormTestSyntaxException extends Exception {
-    XFormTestSyntaxException(String message) {
+class RelevantAssertionError extends Exception {
+    RelevantAssertionError(String message) {
         super(message);
     }
 }

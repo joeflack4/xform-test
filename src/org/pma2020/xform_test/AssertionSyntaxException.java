@@ -16,8 +16,8 @@
 
 package org.pma2020.xform_test;
 
-class XFormTestAssertionTypeException extends Exception {
-    XFormTestAssertionTypeException(String message) {
+class AssertionSyntaxException extends Exception {
+    AssertionSyntaxException(String message) {
         super(message);
     }
 }

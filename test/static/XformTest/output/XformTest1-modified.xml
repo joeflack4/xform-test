@@ -251,7 +251,7 @@ Is this correct? </value>
       <bind nodeset="/XFormTest1/your_name_check" relevant=" /XFormTest1/your_name  != ''" required="true()" type="select1" xtest-linearAssert="{relevant: 0}"/>
       <bind constraint="string-length(.) &lt;= 15" nodeset="/XFormTest1/name_typed" relevant="( /XFormTest1/your_name_check  = 'no') or  /XFormTest1/your_name  = ''" required="true()" type="string" xtest-linearAssert="relevant: 1, value: Joe, constraint: null"/>
       <bind nodeset="/XFormTest1/date_group" relevant="today() &gt; date(&quot;2018-06-10&quot;) and today() &lt; date(&quot;2019-06-10&quot;)" xtest-linearAssert="relevant: 1"/>
-      <bind nodeset="/XFormTest1/date_group/system_date" readonly="true()" type="dateTime" xtest-linearAssert="2018-10-18 00:00:00"/>
+      <bind nodeset="/XFormTest1/date_group/system_date" readonly="true()" type="dateTime"/>
       <bind nodeset="/XFormTest1/date_group/system_date_check" required="true()" type="select1" xtest-linearAssert="true()"/>
       <bind constraint=". &gt; date(&quot;2018-06-10&quot;) and . &lt; date(&quot;2019-06-10&quot;)" jr:constraintMsg="jr:itext('/XFormTest1/manual_date:jr:constraintMsg')" nodeset="/XFormTest1/manual_date" relevant=" /XFormTest1/date_group/system_date_check  = 'no' or today() &lt; date(&quot;2018-06-10&quot;) or today() &gt; date(&quot;2019-06-10&quot;)" required="true()" type="dateTime" xtest-linearAssert="relevant: 0"/>
       <bind calculate="Country" nodeset="/XFormTest1/this_country" type="string" xtest-linearAssert="value: Country, relevant: 1"/>
@@ -265,10 +265,10 @@ Is this correct? </value>
       <bind nodeset="/XFormTest1/HH_selectionrpt/HH_selectiongrp/serial" required="true()" type="int" xtest-linearAssert="[252, 777]"/>
       <bind nodeset="/XFormTest1/HH_selectionrpt/HH_selectiongrp/structure" required="true()" type="int" xtest-linearAssert="[123, 999]"/>
       <bind nodeset="/XFormTest1/HH_selectionrpt/HH_selectiongrp/household" required="true()" type="int" xtest-linearAssert="[636, 444]"/>
-      <bind calculate="concat( /XFormTest1/HH_selectionrpt/HH_selectiongrp/serial ,': ', /XFormTest1/HH_selectionrpt/HH_selectiongrp/structure ,'-', /XFormTest1/HH_selectionrpt/HH_selectiongrp/household ,'&amp;#x0a;')" nodeset="/XFormTest1/HH_selectionrpt/HH_selectionconcat" type="string" xtest-linearAssert="[252: 123-636&amp;#x0a;, 777: 999-444&amp;#x0a;]"/>
+      <bind calculate="concat( /XFormTest1/HH_selectionrpt/HH_selectiongrp/serial ,': ', /XFormTest1/HH_selectionrpt/HH_selectiongrp/structure ,'-', /XFormTest1/HH_selectionrpt/HH_selectiongrp/household ,'&amp;#x0a;')" nodeset="/XFormTest1/HH_selectionrpt/HH_selectionconcat" type="string" xtest-linearAssert="[252\: 123-636&amp;#x0a;, 777\: 999-444&amp;#x0a;]"/>
       <bind calculate="35" nodeset="/XFormTest1/max_num_HH" type="string" xtest-linearAssert="35"/>
       <bind calculate="(count( /XFormTest1/HH_selectionrpt ))" nodeset="/XFormTest1/num_HH_selected" type="string" xtest-linearAssert="2"/>
-      <bind calculate="join('', /XFormTest1/HH_selectionrpt/HH_selectionconcat )" nodeset="/XFormTest1/all_selected_HH" type="string" xtest-linearAssert="252: 123-636&amp;#x0a;777: 999-444&amp;#x0a;"/>
+      <bind calculate="join('', /XFormTest1/HH_selectionrpt/HH_selectionconcat )" nodeset="/XFormTest1/all_selected_HH" type="string" xtest-linearAssert="252\: 123-636&amp;#x0a;777\: 999-444&amp;#x0a;"/>
       <bind nodeset="/XFormTest1/HH_selectioncheck_grp" xtest-linearAssert="relevant: 1"/>
       <bind nodeset="/XFormTest1/HH_selectioncheck_grp/HH_selectioncheck_list" readonly="true()" type="string" xtest-linearAssert="relevant: 1"/>
       <bind nodeset="/XFormTest1/HH_selectioncheck_grp/HH_selectioncheck" required="true()" type="select1" xtest-linearAssert="true()"/>
